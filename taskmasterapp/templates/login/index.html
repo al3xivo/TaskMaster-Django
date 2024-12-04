@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"/>
+    <title>Página de Login</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <h1>Faça seu login<span class="dot">.</span></h1>
+        {% if form.non_field_errors %}
+        <div class="error-messages">
+          {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <form method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="input-group">
+            <label for="username">Usuário</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Digite seu usuário"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Entrar</button>
+          <a href="{% url 'register' %}" class="signup">Ainda não tenho uma conta</a>
+        </form>
+      </div>
+      {% if messages %}
+      <div id="popup" class="popup">
+        {% for message in messages %}
+        <div class="message message-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <script>
+      // Exibe o popup se ele existir
+      const popup = document.getElementById("popup");
+      if (popup) {
+        popup.style.display = "block";
+        // Oculta o popup após 5 segundos
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'register/css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Registro da Conta</title>
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="register-box">
+        <h1>Crie uma conta<span class="dot">.</span></h1>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <label for="username">Nome de Usuário</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Digite seu nome de usuário"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite seu email"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Crie uma senha"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="confirm-password">Confirme a Senha</label>
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm-password"
+              placeholder="Repita sua senha"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Registrar</button>
+          <a href="{% url 'login' %}" class="login-link">Já tenho uma conta</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

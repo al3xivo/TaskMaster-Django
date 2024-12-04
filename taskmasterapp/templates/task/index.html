@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'task/css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"/>
+    <title>Lista de tarefas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Minhas Tarefas<span class="dot">.</span></h1>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - {{ task.due_date }} - {{ task.priority }}
+                <div>
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-edit">Alterar</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-delete" onclick="return confirm('Tem certeza que deseja remover esta tarefa?');">Remover</a>
+                </div>
+            </li>
+            {% empty %}
+            <p>Você ainda não possui tarefas cadastradas.</p>
+            {% endfor %}
+        </ul>
+        <button id="show-tasks"><a href="{% url 'taskregister' %}">Adicionar Tarefas</a></button>
+        
+    </div>
+</body>
+</html>

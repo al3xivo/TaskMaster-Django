@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url("https://i.pinimg.com/originals/74/79/77/747977dfedb099d3e9207b1a5bbd8563.jpg") no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+.container h1 .dot {
+    color: #ff007a; 
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    background: rgba(30, 30, 30, 0.9);
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 0.95rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+ul li label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+ul li .checkbox {
+    margin-right: 0.8rem;
+    width: 20px;
+    height: 20px;
+    accent-color: #2a9d8f;
+    cursor: pointer;
+}
+
+ul li .task-content {
+    flex: 1;
+    display: inline-block;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+ul li .checkbox:checked + .task-content {
+    color: #fff;
+    text-decoration: line-through;
+    background: #2a9d8f;
+    border-radius: 5px;
+    padding: 0.2rem;
+}
+
+p {
+    color: #757575;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(to right, #ff007a, #ff9900);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.7);
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+ul li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #333; 
+    border-radius: 8px; 
+    margin-bottom: 0.5rem;
+}
+
+.task-content {
+    flex: 1; 
+    color: #fff; 
+    margin-right: 1rem;
+}
+.task-actions {
+    display: flex;
+    gap: 0.5rem; 
+}
+.btn {
+    display: inline-block;
+    padding: 4px 8px; 
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 0.8rem; 
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0.9; 
+}
+.btn-edit {
+    background: linear-gradient(to right, rgba(76, 175, 80, 0.8), rgba(42, 157, 143, 0.8));
+    color: #fff;
+    border: none;
+}
+.btn-edit:hover {
+    background: linear-gradient(to right, rgba(62, 142, 65, 0.9), rgba(31, 125, 95, 0.9)); 
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    opacity: 1; 
+}
+.btn-delete {
+    background: linear-gradient(to right, rgba(255, 77, 77, 0.8), rgba(255, 0, 122, 0.8)); /* Fundo com transparência ajustada */
+    color: #fff;
+    border: none;
+}
+
+.btn-delete:hover {
+    background: linear-gradient(to right, rgba(230, 57, 57, 0.9), rgba(204, 0, 102, 0.9)); /* Efeito hover sem transparência */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 122, 0.5);
+    opacity: 1; 
+}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'taskregister/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Agenda das Tarefas</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adicionar tarefas<span class="dot">.</span></h1>
+        </header>
+        <div id="task-input">
+            <form method="POST" action="{% url 'taskregister' %}">
+                {% csrf_token %}
+                <input type="text" name="title" id="task-text" placeholder="Digite sua tarefa" required>
+                <input type="date" name="due_date" id="task-date" required>
+                <select name="priority" id="task-priority">
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
+                <button type="submit" id="add-task">Adicionar Tarefa</button>
+            </form>
+        </div>
+        <a href="{% url 'task' %}"><button id="show-tasks">Tarefas Adicionadas</button></a>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
